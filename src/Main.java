@@ -1,8 +1,9 @@
 import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException {
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
         //Programmi tervitustekst
         System.out.println("Tere! Uue mängu jaoks kirjutage \"Uusmäng\"" +
                 ", lõpetamiseks kirjutage \"lõpp\"");
@@ -28,6 +29,7 @@ public class Main {
                 int pikkus = sc.nextInt();
                 mäng = new Mäng(pikkus);
                 mäng.PrindiProtsess();
+                arvamisi=0;
                 continue;
             }
             //Tähe pakkumine
@@ -36,12 +38,14 @@ public class Main {
                 mäng.PrindiProtsess();
             }
             // Lahenduse kontrollimine
-
-            System.out.println(sisend);
             String arvamine = mäng.getArvamine().replace(" ","");
             if(arvamine.equals(mäng.getSõna())||sisend.equals(arvamine)){
+                Tulemus tulemus = new Tulemus(mäng.getSõna(), arvamisi);
+                tulemus.lisatulemus();
                 System.out.println("Palju õnne, lahendasite sõna ära, kokku kulus " + arvamisi + " arvamist.");
             }
+
+            arvamisi++;
             System.out.println("Tsüklilõpp");
         }
 
