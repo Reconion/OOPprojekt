@@ -4,12 +4,36 @@ import java.util.ArrayList;
 
 public class Mäng {
     private String sõna;
+    private String arvamine;
 
+    public String getSõna() {
+        return sõna;
+    }
+    public String getArvamine() {
+        return arvamine;
+    }
+    public void setArvamine(String arvamine) {
+        this.arvamine = arvamine;
+    }
     public Mäng(int sõnasuurus) throws FileNotFoundException {
-        this.sõna = Uussõna(sõnasuurus);
+        this.sõna = UusSõna(sõnasuurus);
+        this.arvamine = "_ ".repeat(sõnasuurus);
     }
 
-    public static String Uussõna(int n) throws FileNotFoundException {
+
+    /**
+     * Prindib sõna arvamise protsessi
+     */
+    public void PrindiProtsess(){
+        System.out.println("Sõna: " + this.getArvamine());
+    }
+
+    /**
+     * @param n sõna suurus
+     * @return Failist sonad.txt suvaline n-pikkune sõna
+     * @throws FileNotFoundException juhul kui faili sonad.txt ei leidu
+     */
+    private String UusSõna(int n) throws FileNotFoundException {
         //Kontrollime, et poleks liiga suur sõna
         if(n>27){
             return null;
@@ -25,7 +49,6 @@ public class Mäng {
                 sõnad.add(rida);
             }
         }
-        System.out.println(sõnad);
         String valitudsõna = sõnad.get((int)(Math.random()*sõnad.size()));
         return valitudsõna;
 
