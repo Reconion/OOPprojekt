@@ -11,7 +11,7 @@ public class Main {
         int arvamisi = 0;
         //Mängu tsükkel
         while(true){
-            System.out.println("Tsüklialgus");
+            //System.out.println("Tsüklialgus");
             Scanner sc = new Scanner(System.in);
             String sisend = sc.nextLine().toUpperCase();
             //Programmi peatamine
@@ -46,7 +46,7 @@ public class Main {
             }
 
             arvamisi++;
-            System.out.println("Tsüklilõpp");
+            //System.out.println("Tsüklilõpp");
         }
 
     }

@@ -1,2 +1,2 @@
-sõna='KANDEV', katseid=0
+sõna='VABAKAUBANDUSORGANISATSIOON', katseid=38
 
