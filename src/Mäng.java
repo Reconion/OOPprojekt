@@ -12,11 +12,11 @@ public class Mäng {
     public String getArvamine() {
         return arvamine;
     }
-    public void setArvamine(String arvamine) {
-        this.arvamine = arvamine;
+    public void setArvamine(String täht, int indeks) {
+        this.arvamine = arvamine.substring(0,indeks*2) + täht + arvamine.substring(indeks*2+1);
     }
     public Mäng(int sõnasuurus) throws FileNotFoundException {
-        this.sõna = UusSõna(sõnasuurus);
+        this.sõna = UusSõna(sõnasuurus).toUpperCase();
         this.arvamine = "_ ".repeat(sõnasuurus);
     }
 
@@ -51,6 +51,14 @@ public class Mäng {
         }
         String valitudsõna = sõnad.get((int)(Math.random()*sõnad.size()));
         return valitudsõna;
-
+    }
+    public void PakuTäht(String täht){
+        String[] sõnalahku = sõna.split("");
+        for (int i = 0; i < sõna.length() ; i++) {
+            String vaadatav = sõnalahku[i];
+            if(vaadatav.equals(täht)){
+                setArvamine(täht,i);
+            }
+        }
     }
 }
