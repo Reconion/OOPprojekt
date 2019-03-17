@@ -1,0 +1,2 @@
+sõna='KANDEV', katseid=0
+
