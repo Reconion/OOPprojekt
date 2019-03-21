@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
@@ -8,7 +9,6 @@ public class Main {
         System.out.println("Tere! Uue mängu jaoks kirjutage \"Uusmäng\"" +
                 ", lõpetamiseks kirjutage \"lõpp\"");
         Mäng mäng = new Mäng(1);
-        int arvamisi = 0;
         //Mängu tsükkel
         while(true){
             //System.out.println("Tsüklialgus");
@@ -29,23 +29,24 @@ public class Main {
                 int pikkus = sc.nextInt();
                 mäng = new Mäng(pikkus);
                 mäng.PrindiProtsess();
-                arvamisi=0;
+                //arvamisi=0;
                 continue;
             }
             //Tähe pakkumine
             if(sisend.length()==1){
                 mäng.PakuTäht(sisend);
+                mäng.PakutudTähed(sisend);
+                mäng.ArvamisteSumma();
                 mäng.PrindiProtsess();
             }
             // Lahenduse kontrollimine
             String arvamine = mäng.getArvamine().replace(" ","");
             if(arvamine.equals(mäng.getSõna())||sisend.equals(arvamine)){
-                Tulemus tulemus = new Tulemus(mäng.getSõna(), arvamisi);
+                Tulemus tulemus = new Tulemus(mäng.getSõna(), mäng.ArvamisteSumma()-1));
                 tulemus.lisatulemus();
-                System.out.println("Palju õnne, lahendasite sõna ära, kokku kulus " + arvamisi + " arvamist.");
+                System.out.println("Palju õnne, lahendasite sõna ära, kokku kulus " + (mäng.getArvamised()-1) + " arvamist.");
             }
 
-            arvamisi++;
             //System.out.println("Tsüklilõpp");
         }
 
