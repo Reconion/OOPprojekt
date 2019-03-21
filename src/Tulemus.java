@@ -1,6 +1,6 @@
+import java.io.FileWriter;
+import java.io.IOException;
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.UnsupportedEncodingException;
 
 public class Tulemus {
     private String sõna;
@@ -17,11 +17,11 @@ public class Tulemus {
                 ", katseid=" + katseid + "\n";
     }
 
-    public void lisatulemus() throws FileNotFoundException, UnsupportedEncodingException {
+    public void lisatulemus() throws IOException {
         File tulemusfail = new File("tulemused.txt");
         System.out.println(tulemusfail.exists());
-        try (java.io.PrintWriter loetudfail = new java.io.PrintWriter(tulemusfail, "UTF-8")) {
-            loetudfail.println(toString());
+        try (FileWriter fw = new FileWriter (tulemusfail, true)) {
+            fw.append(toString());
         }
     }
 }
