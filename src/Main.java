@@ -1,10 +1,10 @@
-import java.io.FileNotFoundException;
+//import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+//import java.io.UnsupportedEncodingException;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
+    public static void main(String[] args) throws IOException {
         //Programmi tervitustekst
         System.out.println("Tere! Uue mängu jaoks kirjutage \"Uusmäng\"" +
                 ", lõpetamiseks kirjutage \"lõpp\"");
