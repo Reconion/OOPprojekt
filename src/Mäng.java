@@ -5,7 +5,15 @@ import java.util.ArrayList;
 public class Mäng {
     private String sõna;
     private String arvamine;
-
+    private int arvamised;
+    private ArrayList tähtedeList = new ArrayList();
+    
+    public ArrayList getPakutud() { 
+        return tähtedeList; 
+    }
+    public int getArvamised() { 
+        return arvamised; 
+    }
     public String getSõna() {
         return sõna;
     }
@@ -25,7 +33,7 @@ public class Mäng {
      * Prindib sõna arvamise protsessi
      */
     public void PrindiProtsess(){
-        System.out.println("Sõna: " + this.getArvamine());
+        System.out.println("Sõna: " + this.getArvamine() + "\nPakutud tähed: " + getPakutud());
     }
 
     /**
@@ -60,5 +68,14 @@ public class Mäng {
                 setArvamine(täht,i);
             }
         }
+    }
+    public int ArvamisteSumma(){
+        return arvamised+=1;
+    }
+    //Kontrollib, kas täht on pakutud tähtede loendis ja kui ei ole, siis lisab
+    public ArrayList PakutudTähed(String täht) {
+        if (tähtedeList.contains(täht)) {
+        } else tähtedeList.add(täht);
+        return tähtedeList;
     }
 }
