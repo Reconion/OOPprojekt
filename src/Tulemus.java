@@ -19,7 +19,7 @@ public class Tulemus {
 
     public void lisatulemus() throws IOException {
         File tulemusfail = new File("tulemused.txt");
-        System.out.println(tulemusfail.exists());
+        System.out.println("Tulemusfaili olemasolu: " + tulemusfail.exists());
         try (FileWriter fw = new FileWriter (tulemusfail, true)) {
             fw.append(toString());
         }
